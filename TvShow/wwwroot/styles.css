@@ -1,9 +1,12 @@
 /* font-family: 'Acme', sans-serif;
 font-family: 'Raleway', sans-serif; */
-body{
+html, body{
   background-color: rgb(255, 223, 228);
   font-family: 'Raleway', sans-serif;
-  
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 .header{
   width: 100%;
@@ -16,6 +19,7 @@ body{
   background-blend-mode: lighten;
   text-align: center;
   font-family: 'Acme', sans-serif;
+  text-shadow: 0px 0px 19px white;
 }
 .fixedHeader{
   width: 100%;
@@ -25,6 +29,8 @@ body{
   top: 150px;
   text-align: center;
   font-family: 'Acme', sans-serif;
+  border-top: 2px yellow solid;
+  border-bottom: 2px rgb(255, 255, 255) solid;
 }
 .fixedHeader a{
   color: grey;
@@ -36,13 +42,25 @@ a{
 }
 a:hover{
   font-weight: bolder;
-  color:grey;
-  text-shadow: 0px 0px 15px yellow;
-  text-shadow: 0px, 0px, 10px white;
-  text-shadow: 0px, 0px, 5px white;
+  color: rgb(159, 23, 238);
+  text-decoration: none;
+  text-shadow: 0px 0px 15px pink;
 }
 .container{
   width: 80%;
   margin-top: 200px;
   margin-left: 0 auto;
 }
+
+.content{
+  text-align: left;
+  display: inline-block;
+  background-color:rgb(252, 252, 252);
+  top: 0;
+  box-sizing: border-box;
+  flex-grow: 1;
+  padding: 10px;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+} 
