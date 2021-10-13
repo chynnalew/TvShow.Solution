@@ -6,7 +6,9 @@ namespace TvShow.Models
   {
     public DbSet<Show> Shows {get; set;}
     public DbSet<Genre> Genres {get; set;}
+    public DbSet<Network> Networks {get; set;}
     public DbSet<ShowGenres> ShowGenres {get; set;}
+    public DbSet<ShowNetworks> ShowNetworks {get; set;}
 
     public TvShowContext(DbContextOptions options) : base(options) {}
 
