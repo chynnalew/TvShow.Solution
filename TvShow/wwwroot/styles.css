@@ -1,0 +1,48 @@
+/* font-family: 'Acme', sans-serif;
+font-family: 'Raleway', sans-serif; */
+body{
+  background-color: rgb(255, 223, 228);
+  font-family: 'Raleway', sans-serif;
+  
+}
+.header{
+  width: 100%;
+  position: fixed;
+  padding: 50px;
+  top:0;
+  background-image: url(atBackground.jpeg);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.479);
+  background-blend-mode: lighten;
+  text-align: center;
+  font-family: 'Acme', sans-serif;
+}
+.fixedHeader{
+  width: 100%;
+  position: fixed;
+  background: rgb(132, 223, 132);
+  padding: 5px;
+  top: 150px;
+  text-align: center;
+  font-family: 'Acme', sans-serif;
+}
+.fixedHeader a{
+  color: grey;
+  padding: 6%;
+}
+a{
+  color:grey;
+  font-size: large;
+}
+a:hover{
+  font-weight: bolder;
+  color:grey;
+  text-shadow: 0px 0px 15px yellow;
+  text-shadow: 0px, 0px, 10px white;
+  text-shadow: 0px, 0px, 5px white;
+}
+.container{
+  width: 80%;
+  margin-top: 200px;
+  margin-left: 0 auto;
+}
