@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TvShow.Models.Network;
+
+<h1>@Model.NetworkName Shows</h1>
+<br>
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>No Shows with this Network</p>
+}
+else
+{
+  @foreach(var join in Model.JoinEntities)
+  {
+    @Html.ActionLink($"{join.Show.Title}", "Details", "Shows", new{ id = join.Show.ShowId}) 
+    @using(Html.BeginForm("DeleteShow", "Network"))
+    {
+      @Html.Hidden("joinId", @join.ShowNetworksId)
+      @Html.Hidden("id", @Model.NetworkId)
+      <input type="submit" value="Remove from Network"/>
+    }
+    <br>
+  }
+}
+<br>
+
+<p>@Html.ActionLink("Add a Show!", "AddShow", new{ id = Model.NetworkId})</p>
+<p>@Html.ActionLink("Edit this Genre", "Edit", new{ id = Model.NetworkId})</p>
+<br>
+<p>@Html.ActionLink("Delete this Genre", "Delete", new{ id = Model.NetworkId})</p>

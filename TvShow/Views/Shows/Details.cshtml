@@ -1,0 +1,57 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TvShow.Models.Show;
+
+<h1>@Model.Title</h1>
+<p>@Model.Description</p>
+<br>
+<h3>Genres:</h3>
+@if (@Model.JoinGenres.Count == 0)
+{
+  <p>No genres associated with this show</p>
+}
+else
+{
+  @foreach(var join in Model.JoinGenres)
+  {
+    @Html.ActionLink($"{join.Genre.GenreType}", "Details", "Genre", new{ id = join.Genre.GenreId}) 
+    @using(Html.BeginForm("DeleteGenre", "Shows"))
+    {
+      @Html.Hidden("joinGenreId", @join.ShowGenresId)
+      @Html.Hidden("id", @Model.ShowId)
+      <input type="submit" value="Remove Genre"/>
+    }
+   <br>
+  }
+}
+<br>
+<h3>Network:</h3>
+@if (@Model.JoinNetworks.Count == 0)
+{
+  <p>No network associated with this show</p>
+}
+else
+{
+  @foreach(var join in Model.JoinNetworks)
+  {
+    @Html.ActionLink($"{join.Network.NetworkName}", "Details", "Networks", new{ id = join.Network.NetworkId}) 
+    @using(Html.BeginForm("DeleteNetwork", "Shows"))
+    {
+      @Html.Hidden("joinNetworkId", @join.ShowNetworksId)
+      @Html.Hidden("id", @Model.ShowId)
+      <input type="submit" value="Remove Network"/>
+    }
+  }
+}
+<br>
+
+<p>@Html.ActionLink("Add a Genre!", "AddGenre", new{ id = Model.ShowId})</p>
+@if(@Model.JoinNetworks.Count == 0)
+{
+  <p>@Html.ActionLink("Add this show's Network", "AddNetwork", new{ id = Model.ShowId})</p>
+}
+<p>@Html.ActionLink("Edit this Show", "Edit", new{ id = Model.ShowId})</p>
+<br>
+<p>@Html.ActionLink("Delete this Show", "Delete", new{ id = Model.ShowId})</p>

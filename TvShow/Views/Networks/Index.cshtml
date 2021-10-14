@@ -16,6 +16,7 @@
   @foreach(Network network in Model)
   {
     @Html.ActionLink($"{network.NetworkName}", "Details", new{ id = network.NetworkId})
+    <br>
   }
 </div>
 <br>

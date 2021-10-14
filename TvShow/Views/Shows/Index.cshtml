@@ -16,6 +16,7 @@
   @foreach(Show show in Model)
   {
     @Html.ActionLink($"{show.Title}", "Details", new{ id = show.ShowId}) 
+    <br>
   }
 </div>
 <br>

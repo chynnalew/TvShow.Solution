@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TvShow.Models.Genre;
+
+<h1>@Model.GenreType Shows</h1>
+<br>
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>No Shows in this genre</p>
+}
+else
+{
+  @foreach(var join in Model.JoinEntities)
+  {
+    @Html.ActionLink($"{join.Show.Title}", "Details", "Shows", new{ id = join.Show.ShowId}) 
+    @using(Html.BeginForm("DeleteShow", "Genres"))
+    {
+      @Html.Hidden("joinId", @join.ShowGenresId)
+      @Html.Hidden("id", @Model.GenreId)
+      <input type="submit" value="Remove from Genre"/>
+    }
+    <br>
+  }
+}
+<br>
+
+<p>@Html.ActionLink("Add a Show!", "AddShow", new{ id = Model.GenreId})</p>
+<p>@Html.ActionLink("Edit this Genre", "Edit", new{ id = Model.GenreId})</p>
+<br>
+<p>@Html.ActionLink("Delete this Genre", "Delete", new{ id = Model.GenreId})</p>
