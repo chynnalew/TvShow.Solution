@@ -79,5 +79,24 @@ namespace TvShow.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisNetwork = _db.Networks.FirstOrDefault(network => network.NetworkId == id);
+      _db.Networks.Remove(thisNetwork);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteShow(int joinId, int id)
+    {
+      var joinEntry = _db.ShowNetworks.FirstOrDefault(entry => entry.ShowNetworksId == joinId);
+      _db.ShowNetworks.Remove(joinEntry);
+      _db.SaveChanges();
+      var thisNetwork = _db.Networks.FirstOrDefault(network => network.NetworkId == id);
+      return View("Details", thisNetwork);
+    }
   }
 }

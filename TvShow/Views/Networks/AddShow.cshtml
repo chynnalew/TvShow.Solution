@@ -23,3 +23,5 @@
   @Html.ActionLink($"{join.Show.Title}", "Details", "Shows", new{ id = join.Show.ShowId}) 
   <br>
 }
+<br>
+<p>@Html.ActionLink("Return to Network Page", "Details", "Networks", new{id = @Model.NetworkId})</p>
