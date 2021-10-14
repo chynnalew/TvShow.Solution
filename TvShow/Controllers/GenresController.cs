@@ -53,5 +53,16 @@ namespace TvShow.Controllers
       ViewBag.ShowId = new SelectList(_db.Shows, "ShowId", "Title");
       return View(thisGenre);
     }
+
+    [HttpPost]
+    public ActionResult AddShow(Genre genre, int ShowId)
+    {
+      if(ShowId != 0 && !_db.ShowGenres.Any( model => model.GenreId == genre.GenreId && model.ShowId == ShowId))
+      {
+        _db.ShowGenres.Add(new ShowGenres() {ShowId = ShowId,  GenreId = genre.GenreId});
+        _db.SaveChanges();
+      }
+      return RedirectToAction("AddShow");
+    }
   }
 }

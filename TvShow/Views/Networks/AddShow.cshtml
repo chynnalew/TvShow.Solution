@@ -2,13 +2,13 @@
   Layout="_Layout";
 }
 
-@model TvShow.Models.Genre
+@model TvShow.Models.Network
 
-<h1>Add a Show to the @Model.GenreType List!</h1>
+<h1>Add a Show to the @Model.NetworkName List!</h1>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.GenreId)
+  @Html.HiddenFor(model => model.NetworkId)
   @Html.Label("Add a Show")
   <br>
   @Html.DropDownList("ShowId")
@@ -17,7 +17,7 @@
   <input type="submit" value="Add this Show!" class="btn btn-warning"/>
 }
 <br>
-<h3>Shows Already in this Genre:</h3>
+<h3>Shows Already in this Network:</h3>
 @foreach (var join in Model.JoinEntities)
 {
   @Html.ActionLink($"{join.Show.Title}", "Details", "Shows", new{ id = join.Show.ShowId}) 

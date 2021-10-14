@@ -1,0 +1,37 @@
+@{
+  Layout="_Layout";
+}
+
+@model TvShow.Models.Show
+
+@if(Model.JoinNetworks.Count == 0)
+{
+  <h1>Add a Network to the @Model.Title!</h1>
+
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.ShowId)
+    @Html.Label("Add a Network")
+    <br>
+    @Html.DropDownList("NetworkId")
+    <br>
+    <br>
+    <input type="submit" value="Add this Network!" class="btn btn-warning"/>
+  }
+}
+else
+{
+  <p>each show can have only one network</p>
+  <h1>@Model.Title's Network:</h1>
+  @foreach(var join in Model.JoinNetworks)
+  {
+    @Html.ActionLink($"{join.Network.NetworkName}", "Details", "Networks", new{ id = join.Network.NetworkId}) 
+    @using(Html.BeginForm("DeleteNetwork", "Shows"))
+    {
+      @Html.Hidden("joinNetworkId", @join.ShowNetworksId)
+      @Html.Hidden("id", @Model.ShowId)
+      <input type="submit" value="Remove Network"/>
+    }
+  }
+}
+<br>

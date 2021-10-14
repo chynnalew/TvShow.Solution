@@ -1,0 +1,31 @@
+@{
+  Layout="_Layout";
+}
+
+@model TvShow.Models.Show
+
+<h1>Add a Genre to the @Model.Title!</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ShowId)
+  @Html.Label("Add a Genre")
+  <br>
+  @Html.DropDownList("GenreId")
+  <br>
+  <br>
+  <input type="submit" value="Add this Genre!" class="btn btn-warning"/>
+}
+<br>
+<h3>This Show's Genres:</h3>
+@foreach(var join in Model.JoinGenres)
+{
+  @Html.ActionLink($"{join.Genre.GenreType}", "Details", "Genre", new{ id = join.Genre.GenreId}) 
+  @using(Html.BeginForm("DeleteGenre", "Shows"))
+  {
+    @Html.Hidden("joinGenreId", @join.ShowGenresId)
+    @Html.Hidden("id", @Model.ShowId)
+    <input type="submit" value="Remove Genre"/>
+  }
+  <br>
+}

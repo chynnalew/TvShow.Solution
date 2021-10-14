@@ -44,5 +44,26 @@ namespace TvShow.Controllers
         .FirstOrDefault(network => network.NetworkId == id);
       return View(thisNetwork);
     }
+
+    public ActionResult AddShow(int id) 
+    {
+      var thisNetwork = _db.Networks
+        .Include(network => network.JoinEntities)
+        .ThenInclude(join => join.Show)
+        .FirstOrDefault(network => network.NetworkId == id);
+      ViewBag.ShowId = new SelectList(_db.Shows, "ShowId", "Title");
+      return View(thisNetwork); 
+    }
+
+    [HttpPost]
+    public ActionResult AddShow(Network network, int ShowId)
+    {
+      if(ShowId != 0 && !_db.ShowNetworks.Any( model => model.NetworkId == network.NetworkId && model.ShowId == ShowId))
+      {
+        _db.ShowNetworks.Add(new ShowNetworks() {ShowId = ShowId, NetworkId = network.NetworkId});
+        _db.SaveChanges();
+      }
+      return RedirectToAction("AddShow");
+    }
   }
 }
