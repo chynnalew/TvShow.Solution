@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TvShow.Models.Genre
+
+<h1>Edit @Model.GenreType</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.GenreId)
+  @Html.EditorFor(model => model.GenreType)
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Return to Genre List", "Index")</p>

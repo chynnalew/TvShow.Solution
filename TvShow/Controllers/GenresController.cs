@@ -64,5 +64,19 @@ namespace TvShow.Controllers
       }
       return RedirectToAction("AddShow");
     }
+
+    public ActionResult Edit(int id)
+    {
+      var thisGenre = _db.Genres.FirstOrDefault(genre => genre.GenreId == id);
+      return View(thisGenre);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Genre genre)
+    {
+      _db.Entry(genre).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
