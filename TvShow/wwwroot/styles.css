@@ -8,12 +8,24 @@ html, body{
   flex-direction: column;
   text-align: center;
 }
+img{
+  height: 200px;
+}
+.btn-warning{
+  text-align: center;
+  background-color: rgb(255, 190, 68);
+  box-shadow: inset 0px 0px 5px rgb(255, 255, 255);
+  color:grey;
+  font-weight: bolder;
+  font-size: larger;
+}
+
 .header{
   width: 100%;
   position: fixed;
   padding: 50px;
   top:0;
-  background-image: url(atBackground.jpeg);
+  background-image: url(img/atBackground.jpeg);
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.479);
   background-blend-mode: lighten;
@@ -47,20 +59,27 @@ a:hover{
   text-shadow: 0px 0px 15px pink;
 }
 .container{
-  width: 80%;
   margin-top: 200px;
-  margin-left: 0 auto;
+  text-align: center;
+  flex-grow: 1;
+  height:100%;
+  width:100%;
+  background-color: rgb(252, 252, 252);
+  padding:30px;
+  top:0;
 }
 
 .content{
   text-align: left;
   display: inline-block;
-  background-color:rgb(252, 252, 252);
   top: 0;
   box-sizing: border-box;
   flex-grow: 1;
-  padding: 10px;
   height: 100%;
   width: 80%;
+  color: grey;
   margin: auto;
-} 
+}
+.list a:hover{
+  color: rgb(97, 155, 10);
+}

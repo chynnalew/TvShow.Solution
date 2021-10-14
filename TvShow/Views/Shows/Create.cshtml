@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TvShow.Models.Show;
+
+<h3>Add a new Show!</h3>
+<br>
+@using (Html.BeginForm())
+{
+  @Html.TextBoxFor(model => model.Title, new{@class = "form-control", placeholder = "Enter a Show Title Here"})
+  <br>
+  @Html.TextBoxFor(model => model.Description, new{@class = "form-control", placeholder = "Enter a Descripton Here"})
+  <br>
+  @Html.CheckBoxFor(model=> model.Completed, new{style="margin:10px"})
+  @Html.Label("Finished Watching")
+  <br>
+  <br>
+  <input type="submit" value="Add Show" class="btn btn-warning" />
+}
+<br>
+<img src="~/img/great-north.gif" alt="the great north gif">

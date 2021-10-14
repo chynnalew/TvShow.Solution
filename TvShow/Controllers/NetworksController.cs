@@ -22,5 +22,10 @@ namespace TvShow.Controllers
       List<Network> allNetworks = _db.Networks.ToList();
       return View(allNetworks);
     }
+
+    public ActionResult Create()
+    {
+      return View();
+    }
   }
 }

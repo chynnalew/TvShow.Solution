@@ -22,5 +22,9 @@ namespace TvShow.Controllers
       List<Show> allShows = _db.Shows.ToList();
       return View(allShows);
     }
+    public ActionResult Create()
+    {
+      return View();
+    }
   }
 }

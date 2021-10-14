@@ -22,5 +22,9 @@ namespace TvShow.Controllers
       List<Genre> allGenres = _db.Genres.ToList();
       return View(allGenres);
     }
+    public ActionResult Create()
+    {
+      return View();
+    }
   }
 }

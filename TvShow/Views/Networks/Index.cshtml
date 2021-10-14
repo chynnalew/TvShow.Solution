@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using TvShow.Models;
+@model List<TvShow.Models.Network>;
+
+<h1>Networks</h1>
+
+@if (Model.Count == 0)
+{
+  <p>No Networks yet! Please add a network</p>
+}
+
+<ul class="list">
+  @foreach(Network network in Model)
+  {
+    <li>@Html.ActionLink($"{network.NetworkName}", "Details", new{ id = network.NetworkId}) </li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add a Network", "Create")</p>
+<br>
+<img src="~/img/teen-titans.gif" alt="teen titians gif">

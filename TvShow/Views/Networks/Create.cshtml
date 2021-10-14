@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TvShow.Models.Network;
+
+<h3>Add a new Network!</h3>
+<br>
+@using (Html.BeginForm())
+{
+  @Html.TextBoxFor(model => model.NetworkName, new{@class = "form-control", placeholder = "Enter a Network Name Here"})
+  <br>
+  <input type="submit" value="Add Network" class="btn btn-warning" />
+}
+<br>
+<img src="~/img/pikachu-dance.gif" alt="dancing pikachu gif">
