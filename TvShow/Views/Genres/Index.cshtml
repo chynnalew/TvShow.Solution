@@ -12,13 +12,13 @@
   <p>No Generes yet! Please add a genre</p>
 }
 
-<ul class="list">
+<div class="list">
   @foreach(Genre genre in Model)
   {
-    <li>@Html.ActionLink($"{genre.GenreType}", "Details", new{ id = genre.GenreId}) </li>
+    @Html.ActionLink($"{genre.GenreType}", "Details", new{ id = genre.GenreId}) 
   }
-</ul>
-
+</div>
+<br>
 <p>@Html.ActionLink("Add a Genre", "Create")</p>
 <br>
 <img src="~/img/fruits.gif" alt="fruits basket gif">

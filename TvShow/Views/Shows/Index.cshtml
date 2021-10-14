@@ -12,13 +12,13 @@
   <p>No Shows yet! Please add a show</p>
 }
 
-<ul class="list">
+<div class="list">
   @foreach(Show show in Model)
   {
-    <li>@Html.ActionLink($"{show.Title}", "Details", new{ id = show.ShowId}) </li>
+    @Html.ActionLink($"{show.Title}", "Details", new{ id = show.ShowId}) 
   }
-</ul>
-
+</div>
+<br>
 <p>@Html.ActionLink("Add a Show", "Create")</p>
 <br>
 <img src="~/img/bobs.gif" alt="bobs burgers gif">

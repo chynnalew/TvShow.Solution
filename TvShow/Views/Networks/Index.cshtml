@@ -12,13 +12,13 @@
   <p>No Networks yet! Please add a network</p>
 }
 
-<ul class="list">
+<div class="list">
   @foreach(Network network in Model)
   {
-    <li>@Html.ActionLink($"{network.NetworkName}", "Details", new{ id = network.NetworkId}) </li>
+    @Html.ActionLink($"{network.NetworkName}", "Details", new{ id = network.NetworkId})
   }
-</ul>
-
+</div>
+<br>
 <p>@Html.ActionLink("Add a Network", "Create")</p>
 <br>
 <img src="~/img/teen-titans.gif" alt="teen titians gif">

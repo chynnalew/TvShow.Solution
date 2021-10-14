@@ -26,5 +26,22 @@ namespace TvShow.Controllers
     {
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Create(Genre genre)
+    {
+      _db.Genres.Add(genre);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      var thisGenre = _db.Genres
+        .Include(genre => genre.JoinEntities)
+        .ThenInclude(join => join.Show)
+        .FirstOrDefault(genre => genre.GenreId == id);
+      return View(thisGenre);
+    }
   }
 }

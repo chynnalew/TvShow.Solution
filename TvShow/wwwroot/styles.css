@@ -72,13 +72,15 @@ a:hover{
 .content{
   text-align: left;
   display: inline-block;
-  top: 0;
   box-sizing: border-box;
   flex-grow: 1;
   height: 100%;
   width: 80%;
   color: grey;
   margin: auto;
+}
+.list a{
+  color:rgb(247, 127, 79);
 }
 .list a:hover{
   color: rgb(97, 155, 10);
