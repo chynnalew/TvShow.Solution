@@ -6,6 +6,10 @@
 
 <h1>@Model.Title</h1>
 <p>@Model.Description</p>
+@if(@Model.Completed == true) 
+{
+  <p>You've finished watching this show!</p>
+}
 <br>
 <h3>Genres:</h3>
 @if (@Model.JoinGenres.Count == 0)

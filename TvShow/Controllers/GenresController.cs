@@ -43,5 +43,15 @@ namespace TvShow.Controllers
         .FirstOrDefault(genre => genre.GenreId == id);
       return View(thisGenre);
     }
+
+    public ActionResult AddShow(int id)
+    {
+      var thisGenre = _db.Genres
+        .Include(genre => genre.JoinEntities)
+        .ThenInclude(join => join.Show)
+        .FirstOrDefault(genre => genre.GenreId == id);
+      ViewBag.ShowId = new SelectList(_db.Shows, "ShowId", "Title");
+      return View(thisGenre);
+    }
   }
 }

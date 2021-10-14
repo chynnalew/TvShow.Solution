@@ -8,7 +8,7 @@
 <br>
 @using (Html.BeginForm())
 {
-  @Html.TextBoxFor(model => model.NetworkName, new{@class = "form-control", placeholder = "Enter a Network Name Here"})
+  @Html.TextBoxFor(model => model.NetworkName, new{@class = "form-control", placeholder = "Enter a Network Name Here", required = "required"})
   <br>
   <input type="submit" value="Add Network" class="btn btn-warning" />
 }

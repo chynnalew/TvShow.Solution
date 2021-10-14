@@ -8,7 +8,7 @@
 <br>
 @using (Html.BeginForm())
 {
-  @Html.TextBoxFor(model => model.GenreType, new{@class = "form-control", placeholder = "Enter a Genre Name Here"})
+  @Html.TextBoxFor(model => model.GenreType, new{@class = "form-control", placeholder = "Enter a Genre Name Here", required = "required"})
   <br>
   <input type="submit" value="Add Genre" class="btn btn-warning" />
 }
