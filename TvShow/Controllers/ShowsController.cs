@@ -89,5 +89,24 @@ namespace TvShow.Controllers
       }
       return RedirectToAction("AddNetwork");
     }
+
+    public ActionResult Edit(int id)
+    {
+       var thisShow = _db.Shows
+        .Include(show => show.JoinGenres)
+        .ThenInclude(join => join.Genre)
+        .Include(show => show.JoinNetworks)
+        .ThenInclude(join => join.Network)
+        .FirstOrDefault(show => show.ShowId == id);
+      return View(thisShow);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Show show)
+    {
+      _db.Entry(show).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
