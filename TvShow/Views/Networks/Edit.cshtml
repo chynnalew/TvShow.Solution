@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TvShow.Models.Network
+
+<h1>Edit @Model.NetworkName</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.NetworkId)
+  @Html.EditorFor(model => model.NetworkName)
+
+  <input type="submit" value="Save">
+}
+
+<p>@Html.ActionLink("Return to Network List", "Index")</p>

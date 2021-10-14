@@ -65,5 +65,19 @@ namespace TvShow.Controllers
       }
       return RedirectToAction("AddShow");
     }
+    
+    public ActionResult Edit(int id)
+    {
+      var thisNetwork = _db.Networks.FirstOrDefault(network => network.NetworkId == id);
+      return View(thisNetwork);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Network network)
+    {
+      _db.Entry(network).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
